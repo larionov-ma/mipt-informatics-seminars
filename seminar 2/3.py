@@ -16,10 +16,10 @@ ARR3=[
 ]
 
 answers = [
-    	[0, " is not a palindrome."],
-        [1, " is a regular palindrome."],
-        [2, " is a mirrored string."],
-        [3, " is a mirrored palindrome."]
+    	[0, "is not a palindrome."],
+        [1, "is a regular palindrome."],
+        [2, "is a mirrored string."],
+        [3, "is a mirrored palindrome."]
 
 ]
 
@@ -40,6 +40,7 @@ def change_ch(arr):
         for j in range(len(CH)):
             if arr[i] == CH[j][0]:
                 arr[i] = CH[j][1]
+                break
     return arr
 
 def have_ch(arr, ARR):
@@ -67,10 +68,16 @@ if rotate(arr) != arr:
     remove_answer(3)
 
 
-#пернеделать
-if  not have_ch(arr, ARR2):
+if have_ch(arr, ARR2):
+    arr_mirror = change_ch(rotate(arr))
+    if arr != arr_mirror:
+        remove_answer(2)
+else:
     remove_answer(2)
 
+
+
+print(txt, answers[-1][-1])
 
 
 
