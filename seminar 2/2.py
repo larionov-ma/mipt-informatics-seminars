@@ -2,7 +2,7 @@ n, t = input().split(' ')
 n = int(n)
 l = len(t)
 arr =[]
-c = int(l/n)
+c = n
 for i in range(c):
     arr += [t[i*c:i*c+c]]
 
