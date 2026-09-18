@@ -1,4 +1,5 @@
 ARR = ['.', '?', '!']
+ARR2 = ['MR', 'MRS', 'DR']
 with open('input.txt', 'r') as f:
     lines = f.readlines()
     count = 0
@@ -12,4 +13,15 @@ with open('input.txt', 'r') as f:
             else:
                 remove_double = False
 
-    print(count)
+    count2 = 0
+    for i in lines:
+        line = i.split(" ")
+        line = [j for j in line if j !="" and j!='\n']
+        dot_end = [j for j in line if j[-1]=='.']
+        initials = [j for j in dot_end if len(j) == 2]
+        sokrashenia = [j for j in dot_end if (j[:-1].upper() in ARR2)]
+        count2 += len(initials) + len(sokrashenia)
+
+
+    
+    print(count - count2)

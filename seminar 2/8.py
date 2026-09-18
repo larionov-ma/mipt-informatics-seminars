@@ -1,13 +1,26 @@
 n = int(input())
 line = input().split()
-m = n//2 + 1
+m = len(line)//2
 
-for i in range(len(line)):
+i = 0
+while i < len(line):
     k = 0
-    for j in range(len(line)):
-        if line[i]>=line[j]:
+    k_up = -1
+    j = 0
+    while j < len(line):
+        if int(line[i])>int(line[j]):
             k += 1
-    if k == m:
+            k_up+=1
+        elif int(line[i])==int(line[j]):
+            k_up += 1
+        j+=1
+    if m >= k and m <= k_up:
         print(line[i])
         break
+    i+=1
+
+
+
+
+
 
